@@ -1,0 +1,20 @@
+server:
+  port: 8000
+  servlet:
+      context-path: /scaffold/api
+
+spring:
+  application:
+    name: llk-scaffold
+  profiles:
+    active: dev
+
+mybatis:
+  type-aliases-package: com.llk.scaffold.entity
+  mapperLocations: classpath:mapper/*.xml
+
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
