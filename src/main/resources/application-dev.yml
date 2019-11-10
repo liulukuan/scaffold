@@ -44,3 +44,16 @@ spring:
         stat:
           log-slow-sql: true
           slow-sql-millis: 10000
+
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    password:
+    timeout: 5000ms
+    lettuce:
+      pool:
+        max-active: 100
+        max-wait: -1ms
+        max-idle: 100
+        min-idle: 0
