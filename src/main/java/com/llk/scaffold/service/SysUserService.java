@@ -1,7 +1,7 @@
 package com.llk.scaffold.service;
 
 import com.github.pagehelper.PageInfo;
-import com.llk.scaffold.entity.SysUser;
+import com.llk.scaffold.model.entity.SysUser;
 
 /**
  * (SysUser)表服务接口

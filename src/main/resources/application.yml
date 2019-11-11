@@ -10,7 +10,7 @@ spring:
     active: dev
 
 mybatis:
-  type-aliases-package: com.llk.scaffold.entity
+  type-aliases-package: com.llk.scaffold.model.entity
   mapperLocations: classpath:mapper/*.xml
 
 pagehelper:

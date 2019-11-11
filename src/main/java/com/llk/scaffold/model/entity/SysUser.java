@@ -1,4 +1,4 @@
-package com.llk.scaffold.entity;
+package com.llk.scaffold.model.entity;
 
 import java.io.Serializable;
 

@@ -1,7 +1,7 @@
 package com.llk.scaffold.controller;
 
 import com.github.pagehelper.PageInfo;
-import com.llk.scaffold.entity.SysUser;
+import com.llk.scaffold.model.entity.SysUser;
 import com.llk.scaffold.service.SysUserService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,6 +1,6 @@
 package com.llk.scaffold.dao;
 
-import com.llk.scaffold.entity.SysUser;
+import com.llk.scaffold.model.entity.SysUser;
 
 import java.util.List;
 

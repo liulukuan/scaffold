@@ -3,7 +3,7 @@ package com.llk.scaffold.service.impl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.llk.scaffold.dao.SysUserDao;
-import com.llk.scaffold.entity.SysUser;
+import com.llk.scaffold.model.entity.SysUser;
 import com.llk.scaffold.service.SysUserService;
 import org.springframework.stereotype.Service;
 
