@@ -1,4 +1,4 @@
-package com.llk.scaffold.common.config.redis;
+package com.llk.scaffold.common.config;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.parser.ParserConfig;

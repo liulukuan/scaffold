@@ -8,6 +8,10 @@ import com.llk.scaffold.model.dto.ResponseBean;
 import com.llk.scaffold.model.dto.UserDto;
 import com.llk.scaffold.model.entity.User;
 import com.llk.scaffold.service.UserService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +29,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author: LiuLukuan
  * @date: 2019/11/11 17:29
  */
+@Api(value = "/user", tags = "用户管理")
 @Slf4j
 @RestController
 @RequestMapping("/user")
@@ -35,6 +40,11 @@ public class LoginController {
 
     @Log("登录接口")
     @PostMapping("/login")
+    @ApiOperation(value = "登录")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "account", value = "用户账号", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "password", value = "密码", required = true, dataType = "String")
+    })
     public ResponseBean login(@RequestBody User userDto, HttpServletResponse httpServletResponse) {
 
         // 校验入参

@@ -78,14 +78,22 @@ public class ShiroConfig {
         factoryBean.setSecurityManager(securityManager);
         // 自定义url规则使用LinkedHashMap有序Map
         LinkedHashMap<String, String> filterChainDefinitionMap = new LinkedHashMap<String, String>(16);
-        // Swagger接口文档
-        // filterChainDefinitionMap.put("/v2/api-docs", "anon");
-        // filterChainDefinitionMap.put("/webjars/**", "anon");
-        // filterChainDefinitionMap.put("/swagger-resources/**", "anon");
-        // filterChainDefinitionMap.put("/swagger-ui.html", "anon");
-        // filterChainDefinitionMap.put("/doc.html", "anon");
         // 公开接口
-        filterChainDefinitionMap.put("/user/login", "anon");
+        filterChainDefinitionMap.put("/user/login", "noSessionCreation,anon");
+        filterChainDefinitionMap.put("/user/logout", "noSessionCreation,anon");
+
+        // druid监控sql
+        filterChainDefinitionMap.put("/druid/**", "noSessionCreation,anon");
+
+         // Swagger接口文档
+         filterChainDefinitionMap.put("/v2/api-docs", "noSessionCreation,anon");
+         filterChainDefinitionMap.put("/webjars/**", "noSessionCreation,anon");
+         filterChainDefinitionMap.put("/swagger-resources/**", "noSessionCreation,anon");
+         filterChainDefinitionMap.put("/swagger-ui.html", "noSessionCreation,anon");
+         filterChainDefinitionMap.put("/doc.html", "noSessionCreation,anon");
+
+        //filterChainDefinitionMap.put("/websocket/*", "noSessionCreation,anon");
+
         // 所有请求通过我们自己的JWTFilter
         filterChainDefinitionMap.put("/**", "jwt");
         factoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
