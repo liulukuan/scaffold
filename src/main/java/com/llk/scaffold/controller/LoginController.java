@@ -1,7 +1,6 @@
 package com.llk.scaffold.controller;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
+import com.llk.scaffold.common.aspect.Log;
 import com.llk.scaffold.common.utils.AesCipherUtil;
 import com.llk.scaffold.common.utils.JwtUtil;
 import com.llk.scaffold.common.utils.RedisUtil;
@@ -10,6 +9,7 @@ import com.llk.scaffold.model.dto.UserDto;
 import com.llk.scaffold.model.entity.User;
 import com.llk.scaffold.service.UserService;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,10 +33,15 @@ public class LoginController {
     @Autowired
     private UserService userService;
 
+    @Log("登录接口")
     @PostMapping("/login")
     public ResponseBean login(@RequestBody User userDto, HttpServletResponse httpServletResponse) {
 
-        //UserDto userDto = JSON.parseObject(json, UserDto.class);
+        // 校验入参
+        if (StringUtils.isBlank(userDto.getAccount()) || StringUtils.isBlank(userDto.getPassword())) {
+            log.error("登录接口入参异常");
+            throw new RuntimeException("登录接口入参异常");
+        }
 
         // 查询数据库中的帐号信息
         UserDto userDtoTemp = new UserDto();

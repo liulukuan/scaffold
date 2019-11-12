@@ -9,6 +9,9 @@ spring:
   profiles:
     active: dev
 
+  aop:
+    auto: true
+
 mybatis:
   type-aliases-package: com.llk.scaffold.model.entity
   mapperLocations: classpath:mapper/*.xml
