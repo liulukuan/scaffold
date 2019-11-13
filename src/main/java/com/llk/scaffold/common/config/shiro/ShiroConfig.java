@@ -81,6 +81,7 @@ public class ShiroConfig {
         // 公开接口
         filterChainDefinitionMap.put("/user/login", "noSessionCreation,anon");
         filterChainDefinitionMap.put("/user/logout", "noSessionCreation,anon");
+        filterChainDefinitionMap.put("/hello", "noSessionCreation,anon");
 
         // druid监控sql
         filterChainDefinitionMap.put("/druid/**", "noSessionCreation,anon");
