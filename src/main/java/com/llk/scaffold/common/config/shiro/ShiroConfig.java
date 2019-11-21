@@ -28,6 +28,7 @@ public class ShiroConfig {
     /**
      * 配置使用自定义Realm，关闭Shiro自带的session
      * 详情见文档 http://shiro.apache.org/session-management.html#SessionManagement-StatelessApplications%28Sessionless%29
+     *
      * @param userRealm
      * @return org.apache.shiro.web.mgt.DefaultWebSecurityManager
      * @author dolyw.com
@@ -63,6 +64,7 @@ public class ShiroConfig {
      * ssl：比如/admins/user/**=ssl没有参数，表示安全的url请求，协议为https
      * user：比如/admins/user/**=user没有参数表示必须存在用户，当登入操作时不做检查
      * 详情见文档 http://shiro.apache.org/web.html#urls-
+     *
      * @param securityManager
      * @return org.apache.shiro.spring.web.ShiroFilterFactoryBean
      * @author dolyw.com
@@ -82,18 +84,18 @@ public class ShiroConfig {
         filterChainDefinitionMap.put("/user/login", "noSessionCreation,anon");
         filterChainDefinitionMap.put("/user/logout", "noSessionCreation,anon");
         filterChainDefinitionMap.put("/hello", "noSessionCreation,anon");
+        filterChainDefinitionMap.put("/file/**", "noSessionCreation,anon");
 
         // druid监控sql
         filterChainDefinitionMap.put("/druid/**", "noSessionCreation,anon");
 
-         // Swagger接口文档
-         filterChainDefinitionMap.put("/v2/api-docs", "noSessionCreation,anon");
-         filterChainDefinitionMap.put("/webjars/**", "noSessionCreation,anon");
-         filterChainDefinitionMap.put("/swagger-resources/**", "noSessionCreation,anon");
-         filterChainDefinitionMap.put("/swagger-ui.html", "noSessionCreation,anon");
-         filterChainDefinitionMap.put("/doc.html", "noSessionCreation,anon");
-
-        //filterChainDefinitionMap.put("/websocket/*", "noSessionCreation,anon");
+        // Swagger接口文档
+        filterChainDefinitionMap.put("/v2/api-docs", "noSessionCreation,anon");
+        filterChainDefinitionMap.put("/webjars/**", "noSessionCreation,anon");
+        filterChainDefinitionMap.put("/swagger-resources/**", "noSessionCreation,anon");
+        filterChainDefinitionMap.put("/swagger-ui.html", "noSessionCreation,anon");
+        filterChainDefinitionMap.put("/doc.html", "noSessionCreation,anon");
+        filterChainDefinitionMap.put("/websocket/*", "noSessionCreation,anon");
 
         // 所有请求通过我们自己的JWTFilter
         filterChainDefinitionMap.put("/**", "jwt");
