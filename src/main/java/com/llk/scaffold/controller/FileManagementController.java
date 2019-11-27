@@ -23,11 +23,17 @@ import java.io.IOException;
 @RequestMapping("/file")
 public class FileManagementController {
 
+    /**
+     * 文件上传有个临时路径保存文件的bug，详情见配置文件的location配置
+     *
+     * @param multipartFile
+     * @return
+     */
     @PostMapping("/upload")
     public ResponseBean upload(@RequestParam("multipartFile") MultipartFile multipartFile) {
 
         String fileOriginalName = multipartFile.getOriginalFilename();
-        File file = new File("E:\\" + fileOriginalName);
+        File file = new File(fileOriginalName);
         try {
             multipartFile.transferTo(file);
         } catch (IOException e) {
