@@ -87,7 +87,8 @@ public class ShiroConfig {
         filterChainDefinitionMap.put("/file/**", "noSessionCreation,anon");
 
         // druid监控sql
-        filterChainDefinitionMap.put("/druid/**", "noSessionCreation,anon");
+        // 这里之前有个BUG，当带有 noSessionCreation 时， 会报 DisabledSessionException 的错，所以这里去掉了
+        filterChainDefinitionMap.put("/druid/**", "anon");
 
         // Swagger接口文档
         filterChainDefinitionMap.put("/v2/api-docs", "noSessionCreation,anon");
