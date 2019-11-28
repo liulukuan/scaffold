@@ -68,5 +68,6 @@ public class LogAspect {
         // 处理完请求，返回内容
         log.info("RESPONSE : " + ret);
         log.info("SPEND TIME : " + (System.currentTimeMillis() - startTime.get()));
+        startTime.remove();
     }
 }
